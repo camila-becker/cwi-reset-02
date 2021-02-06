@@ -8,5 +8,8 @@ public class Aplicacao {
         System.out.println(minhaCalculadora.divide(10,2));
         System.out.println(minhaCalculadora.multiplica(3,3));
 
+        Comparador comparacao = new Comparador();
+        System.out.println(comparacao.menorQue(5, 10));
+
     }
 }
