@@ -11,5 +11,8 @@ public class Aplicacao {
         Comparador comparacao = new Comparador();
         System.out.println(comparacao.menorQue(5, 10));
 
+        Notas minhasNotas = new Notas("Camila");
+        minhasNotas.notasDoAluno(7, 8, 6, 10);
+        System.out.println("A nota final do aluno(a) " + minhasNotas.getAluno() + " é: " + minhasNotas.getNotaFinal() + " e ele(a) foi: " + minhasNotas.getSituacao() + ".");
     }
 }
