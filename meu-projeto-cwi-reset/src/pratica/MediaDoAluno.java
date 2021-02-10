@@ -10,7 +10,7 @@ public class MediaDoAluno {
     Scanner teclado = new Scanner(System.in);
 
     public String nomeDoAluno(){
-        System.out.println("Informe o nome do aluno: ");
+        System.out.print("Informe o nome do aluno: ");
         return this.aluno = teclado.nextLine();
     }
 
@@ -20,13 +20,13 @@ public class MediaDoAluno {
         int nota3 = 0;
         int nota4 = 0;
 
-        System.out.println("Informe a primeira nota do aluno: ");
+        System.out.print("Informe a primeira nota do aluno: ");
         nota1 += teclado.nextInt();
-        System.out.println("Informe a segunda nota do aluno: ");
+        System.out.print("Informe a segunda nota do aluno: ");
         nota2 += teclado.nextInt();
-        System.out.println("Informe a terceira nota do aluno: ");
+        System.out.print("Informe a terceira nota do aluno: ");
         nota3 += teclado.nextInt();
-        System.out.println("Informe a quarta nota do aluno: ");
+        System.out.print("Informe a quarta nota do aluno: ");
         nota4 += teclado.nextInt();
         this.notaFinal = (nota1 + nota2 + nota3 + nota4) / 4;
         if(this.notaFinal >= 7.0){
