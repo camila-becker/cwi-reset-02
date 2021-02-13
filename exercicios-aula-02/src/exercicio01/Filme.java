@@ -21,6 +21,6 @@ public class Filme {
         System.out.println("O nome do filme é: " + this.nome);
         System.out.println("A descrição do filme é: " + this.descricao);
         System.out.println("A duração do filme é: " + this.duracao);
-        System.out.println("O diretor do filme é: " + this.diretor.nome);
+        System.out.println("O diretor do filme é: " + this.diretor.getNome());
     }
 }
