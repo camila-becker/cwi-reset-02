@@ -5,7 +5,7 @@ public class AplicacaoExercicioEnum {
         Ator ator = new Ator("Brad Pitt", 57, 1, Genero.MASCULINO);
         Diretor diretor = new Diretor("Quentin Tarantino", 57, 14, Genero.MASCULINO);
 
-        ator.exibirAtor();
-        diretor.exibirDiretor();
+        ator.apresentacao();
+        diretor.apresentacao();
     }
 }
