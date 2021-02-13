@@ -21,8 +21,7 @@ public class Aplicacao {
                 3.8,
                 christopherNolan
         );
-
-
+        
         djangoLivre.reproduzirFilme();
         System.out.println("######################################");
         interstellar.reproduzirFilme();
