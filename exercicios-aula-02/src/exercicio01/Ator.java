@@ -1,25 +1,21 @@
 package exercicio01;
 
-public class Diretor {
+public class Ator {
     private String nome;
     private int idade;
-    private int quantidadeDeFilmesDirigidos;
+    private int oscarsVencidos;
     private Genero genero;
 
-    public Diretor(String nome, int idade, int quantidadeDeFilmesDirigidos, Genero genero) {
+    public Ator(String nome, int idade, int oscarsVencidos, Genero genero) {
         this.nome = nome;
         this.idade = idade;
-        this.quantidadeDeFilmesDirigidos = quantidadeDeFilmesDirigidos;
+        this.oscarsVencidos = oscarsVencidos;
         this.genero = genero;
     }
 
-    public void exibirDiretor(){
+    public void exibirAtor(){
         System.out.println("Nome: " + this.nome);
         System.out.println("Idade: " + this.idade);
         System.out.println("Gênero: " + this.genero.getDescricao());
-    }
-
-    public String getNome() {
-        return this.nome;
     }
 }
