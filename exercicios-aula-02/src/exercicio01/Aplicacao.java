@@ -23,7 +23,6 @@ public class Aplicacao {
         );
 
         djangoLivre.reproduzirFilme();
-        System.out.println("######################################");
         interstellar.reproduzirFilme();
 
     }
