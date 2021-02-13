@@ -9,7 +9,7 @@ public class Aplicacao {
                         "recompensas em uma missão para resgatar sua esposa de um fazendeiro cruel.",
                 147,
                 2012,
-                4.7,
+                5,
                 quentinTarantino
         );
 
@@ -18,7 +18,7 @@ public class Aplicacao {
                 "viaja através de um buraco de minhoca à procura de um novo lar para a humanidade.",
                 149,
                 2014,
-                3.8,
+                4,
                 christopherNolan
         );
 
