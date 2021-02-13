@@ -9,9 +9,9 @@ public class MediaDoAluno {
 
     Scanner teclado = new Scanner(System.in);
 
-    public String nomeDoAluno(){
+    public void nomeDoAluno(){
         System.out.print("Informe o nome do aluno: ");
-        return this.aluno = teclado.nextLine();
+        this.aluno = teclado.nextLine();
     }
 
     public void notasDoAluno(){

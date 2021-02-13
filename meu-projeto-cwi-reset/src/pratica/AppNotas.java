@@ -1,7 +1,5 @@
 package pratica;
 
-import oo.Notas;
-
 public class AppNotas {
     public static void main(String[] args) {
         MediaDoAluno media = new MediaDoAluno();
