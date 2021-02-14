@@ -9,8 +9,9 @@ public class Imovel {
     }
 
     public String apresentacao(){
-        return "Imóvel localizado no endereço " + this.endereco.getLogradouro() + "." + " Valor: " +
-                DecimalFormat.getCurrencyInstance().format(this.valor) + ".";
+        return "Imóvel localizado no endereço: " + this.endereco.getLogradouro() + ", " + this.endereco.getNumero() +
+                ", " + this.endereco.getBairro() + ", " + this.endereco.getCidade() + ", " + this.endereco.getEstado() +
+                "." + " Valor: " + DecimalFormat.getCurrencyInstance().format(this.valor) + ".";
     }
 
     public Endereco getEndereco() {

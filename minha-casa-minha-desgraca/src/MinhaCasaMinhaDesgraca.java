@@ -19,13 +19,13 @@ public class MinhaCasaMinhaDesgraca {
          * NÃO MODIFICAR ESTA CLASSE ANTES DESTA LINHA.
          */
             Endereco enderecoSP = new Endereco("Av. Santos Ferreira", 3502, "casa fundos",
-                    "Nossa Senhora das Graças", "São Paulo",UnidadeFederativa.SP.getSigla());
+                    "Nossa Senhora das Graças", "Campinas",UnidadeFederativa.SP.getSigla());
 
             Endereco enderecoRS = new Endereco("Av. Protasio Alves", 800, "bloco D",
                 "Petrópolis", "Porto Alegre",UnidadeFederativa.RS.getSigla());
 
             Endereco enderecoRJ = new Endereco("Rua Verona", 50, "casa frente",
-                "São José", "Canoas",UnidadeFederativa.RJ.getSigla());
+                "São José", "Buzios",UnidadeFederativa.RJ.getSigla());
 
             Endereco enderecoSC = new Endereco("Rua Florença", 257, "casa fundos",
                 "Bela Vista", "Florianópolis",UnidadeFederativa.SC.getSigla());

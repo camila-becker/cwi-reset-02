@@ -11,6 +11,8 @@ public class Apartamento extends Imovel{
     @Override
     public String apresentacao(){
         return "Este imóvel é um Apartamento localizado no " + this.andar + "° andar, no endereço: "
-                + getEndereco().getLogradouro() + ". Valor " + DecimalFormat.getCurrencyInstance().format(getValor()) + ".";
+                + getEndereco().getLogradouro() + ", " + getEndereco().getNumero() + ", " + getEndereco().getBairro() +
+                ", " + getEndereco().getCidade() + ", " + getEndereco().getEstado() + ". Valor " +
+                DecimalFormat.getCurrencyInstance().format(getValor()) + ".";
     }
 }
