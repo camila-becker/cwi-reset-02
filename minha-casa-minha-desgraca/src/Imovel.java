@@ -8,7 +8,7 @@ public class Imovel {
     }
 
     public String apresentacao(){
-        return "Imóvel localizado no endereço " + this.endereco + "." + "Valor: R$ " + this.valor + ".";
+        return "Imóvel localizado no endereço " + this.endereco.getLogradouro() + "." + "Valor: R$ " + this.valor + ".";
     }
 
     public Endereco getEndereco() {

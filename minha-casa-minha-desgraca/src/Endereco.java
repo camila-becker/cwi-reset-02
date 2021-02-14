@@ -17,6 +17,10 @@ public class Endereco {
         this.estado = estado;
     }
 
+    public String getLogradouro() {
+        return logradouro;
+    }
+
     public UnidadeFederativa getEstado() {
         return estado;
     }

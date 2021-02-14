@@ -18,6 +18,17 @@ public class MinhaCasaMinhaDesgraca {
          *
          * NÃO MODIFICAR ESTA CLASSE ANTES DESTA LINHA.
          */
+            Endereco endereco = new Endereco("Av. Santos Ferreira", 3502, "casa fundos",
+                    "Nossa Senhora das Graças", "Canoas",UnidadeFederativa.RS);
+
+            Endereco endereco2 = new Endereco("Av. Protasio Alves", 800, "bloco D",
+                "Petrópolis", "Porto Alegre",UnidadeFederativa.RS);
+
+            Endereco endereco3 = new Endereco("Rua Verona", 50, "casa frente",
+                "São José", "Canoas",UnidadeFederativa.RS);
+            opcoesParaFinanciamento.registrarImovel(new Imovel(endereco, 60000));
+            opcoesParaFinanciamento.registrarImovel(new Imovel(endereco2, 150000));
+            opcoesParaFinanciamento.registrarImovel(new Imovel(endereco3, 30000));
         /**
          * FIM
          *

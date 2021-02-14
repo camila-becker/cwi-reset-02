@@ -19,6 +19,6 @@ public class PropostaFinanciamento {
      *      o salário multiplicado pelo prazo deve ser equivalente a 65% e 60% do valor imóvel (respectivamente).
      */
     public void validarProposta() {
-
+        
     }
 }

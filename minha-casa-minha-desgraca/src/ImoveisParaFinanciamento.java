@@ -20,11 +20,11 @@ public class ImoveisParaFinanciamento {
     public void registrarImovel(Imovel imovel) {
         // se "imovel" corresponder às regras, adicioná-lo à lista "imoveis" com o seguinte código:
         //    imoveis.add(imovel);
-        if(imovel.getValor() >= 5000000 || imovel.getValor() <= 100000000){
-            imoveis.add(imovel);
-        }else{
+        if(imovel.getValor() <= 50000 || imovel.getValor() > 1000000){
             System.out.println("> Atenção, problema de registro! Imóveis com valor R$ " + imovel.getValor()
-            + " não são aceitos no programa.");
+                    + " não são aceitos no programa.");
+        }else{
+            imoveis.add(imovel);
         }
     }
 
