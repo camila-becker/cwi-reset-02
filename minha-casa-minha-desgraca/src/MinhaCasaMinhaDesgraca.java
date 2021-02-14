@@ -19,18 +19,24 @@ public class MinhaCasaMinhaDesgraca {
          * NÃO MODIFICAR ESTA CLASSE ANTES DESTA LINHA.
          */
             Endereco enderecoSP = new Endereco("Av. Santos Ferreira", 3502, "casa fundos",
-                    "Nossa Senhora das Graças", "Canoas",UnidadeFederativa.SP.getSigla());
+                    "Nossa Senhora das Graças", "São Paulo",UnidadeFederativa.SP.getSigla());
 
             Endereco enderecoRS = new Endereco("Av. Protasio Alves", 800, "bloco D",
                 "Petrópolis", "Porto Alegre",UnidadeFederativa.RS.getSigla());
 
             Endereco enderecoRJ = new Endereco("Rua Verona", 50, "casa frente",
                 "São José", "Canoas",UnidadeFederativa.RJ.getSigla());
-            opcoesParaFinanciamento.registrarImovel(new Imovel(enderecoSP, 40000));
-            opcoesParaFinanciamento.registrarImovel(new Imovel(enderecoRJ, 2000000));
-            opcoesParaFinanciamento.registrarImovel(new Imovel(enderecoSP, 60000));
-            opcoesParaFinanciamento.registrarImovel(new Imovel(enderecoRS, 150000));
-            opcoesParaFinanciamento.registrarImovel(new Imovel(enderecoRJ, 100000));
+
+            Endereco enderecoSC = new Endereco("Rua Florença", 257, "casa fundos",
+                "Bela Vista", "Florianópolis",UnidadeFederativa.SC.getSigla());
+
+
+            opcoesParaFinanciamento.registrarImovel(new Casa(enderecoSP, 40000, false));
+            opcoesParaFinanciamento.registrarImovel(new Apartamento(enderecoRJ, 2000000, 5));
+            opcoesParaFinanciamento.registrarImovel(new Casa(enderecoSP, 60000, false));
+            opcoesParaFinanciamento.registrarImovel(new Apartamento(enderecoRS, 150000, 10));
+            opcoesParaFinanciamento.registrarImovel(new Casa(enderecoRJ, 100000,true));
+            opcoesParaFinanciamento.registrarImovel(new Imovel(enderecoSC, 120000));
         /**
          * FIM
          *
