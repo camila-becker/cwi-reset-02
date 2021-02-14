@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 public class Imovel {
     private Endereco endereco;
     private double valor;
@@ -8,7 +9,8 @@ public class Imovel {
     }
 
     public String apresentacao(){
-        return "Imóvel localizado no endereço " + this.endereco.getLogradouro() + "." + "Valor: R$ " + this.valor + ".";
+        return "Imóvel localizado no endereço " + this.endereco.getLogradouro() + "." + " Valor: " +
+                DecimalFormat.getCurrencyInstance().format(this.valor) + ".";
     }
 
     public Endereco getEndereco() {

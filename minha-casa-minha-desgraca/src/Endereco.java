@@ -4,10 +4,10 @@ public class Endereco {
     private String complemento;
     private String bairro;
     private String cidade;
-    private UnidadeFederativa estado;
+    private String estado;
 
     public Endereco(String logradouro, int numero, String complemento, String bairro, String cidade,
-                    UnidadeFederativa estado)
+                    String estado)
     {
         this.logradouro = logradouro;
         this.numero = numero;
@@ -21,7 +21,7 @@ public class Endereco {
         return logradouro;
     }
 
-    public UnidadeFederativa getEstado() {
+    public String getEstado() {
         return estado;
     }
 }

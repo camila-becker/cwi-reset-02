@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.text.DecimalFormat;
 
 public class ImoveisParaFinanciamento {
 
@@ -21,7 +22,8 @@ public class ImoveisParaFinanciamento {
         // se "imovel" corresponder às regras, adicioná-lo à lista "imoveis" com o seguinte código:
         //    imoveis.add(imovel);
         if(imovel.getValor() <= 50000 || imovel.getValor() > 1000000){
-            System.out.println("> Atenção, problema de registro! Imóveis com valor R$ " + imovel.getValor()
+            System.out.println("> Atenção, problema de registro! Imóveis com valor " +
+                    DecimalFormat.getCurrencyInstance().format(imovel.getValor())
                     + " não são aceitos no programa.");
         }else{
             imoveis.add(imovel);
