@@ -38,7 +38,7 @@ public class PropostaFinanciamento {
         }
     }
 
-    public void imprimirPropostaAprovada(){
+    private void imprimirPropostaAprovada(){
         System.out.println("Parabéns " + this.beneficiario.getNome() + "!" + " Sua proposta foi aprovada!");
         System.out.println("#### Detalhes da proposta ####");
         System.out.println("Beneficiário: " + this.beneficiario.getNome() + ".");
@@ -46,7 +46,7 @@ public class PropostaFinanciamento {
         System.out.println("Prazo para pagamento: " + this.mesesParaPagamento + " meses.");
     }
 
-    public void imprimirPropostaNegada(){
+    private void imprimirPropostaNegada(){
         System.out.println("Não foi dessa vez " + this.beneficiario.getNome() + "!" + " Sua proposta foi negada!");
         System.out.println("Vai dar um jeito de aumentar esse salário! Quer comprar imóvel ganhando uma mixaria e " +
                 "pagar em " + this.mesesParaPagamento + " meses?!");
