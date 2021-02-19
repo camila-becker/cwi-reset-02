@@ -33,8 +33,8 @@ public enum UnidadeFederativa {
         this.descricao = descricao;
     }
 
-    public String getDescricao(){
-        return this.descricao;
-    }
 
+    public String getDescricao() {
+        return descricao;
+    }
 }

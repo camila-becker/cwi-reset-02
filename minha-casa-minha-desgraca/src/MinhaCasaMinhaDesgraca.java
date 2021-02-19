@@ -19,16 +19,16 @@ public class MinhaCasaMinhaDesgraca {
          * NÃO MODIFICAR ESTA CLASSE ANTES DESTA LINHA.
          */
             Endereco enderecoSP = new Endereco("Av. Santos Ferreira", 3502, "casa fundos",
-                    "Nossa Senhora das Graças", "Campinas",UnidadeFederativa.SP.getDescricao());
+                    "Nossa Senhora das Graças", "Campinas",UnidadeFederativa.SP);
 
             Endereco enderecoRS = new Endereco("Av. Protasio Alves", 800, "bloco D",
-                "Petrópolis", "Porto Alegre",UnidadeFederativa.RS.getDescricao());
+                "Petrópolis", "Porto Alegre",UnidadeFederativa.RS);
 
             Endereco enderecoRJ = new Endereco("Rua Verona", 50, "casa frente",
-                "São José", "Buzios",UnidadeFederativa.RJ.getDescricao());
+                "São José", "Buzios",UnidadeFederativa.RJ);
 
             Endereco enderecoSC = new Endereco("Rua Florença", 257, "casa fundos",
-                "Bela Vista", "Florianópolis",UnidadeFederativa.SC.getDescricao());
+                "Bela Vista", "Florianópolis",UnidadeFederativa.SC);
 
 
             opcoesParaFinanciamento.registrarImovel(new Casa(enderecoSP, 40000, false));
