@@ -23,9 +23,9 @@ public class PropostaFinanciamento {
     public void validarProposta() {
 
 
-        if(this.imovel.getEndereco().getEstado().equals("São Paulo")){
+        if(UnidadeFederativa.SP.equals(this.imovel.getEndereco().getEstado())){
             this.percentualValorImovel = this.imovel.getValor() * 0.65;
-        }else if(this.imovel.getEndereco().getEstado().equals("Rio de Janeiro")){
+        }else if(UnidadeFederativa.RJ.equals(this.imovel.getEndereco().getEstado())){
             this.percentualValorImovel = this.imovel.getValor() * 0.6;
         }else{
             this.percentualValorImovel = this.imovel.getValor() * 0.5;
