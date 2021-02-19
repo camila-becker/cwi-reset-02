@@ -36,7 +36,7 @@ public class MinhaCasaMinhaDesgraca {
             opcoesParaFinanciamento.registrarImovel(new Casa(enderecoSP, 60000, false));
             opcoesParaFinanciamento.registrarImovel(new Apartamento(enderecoRS, 150000, 10));
             opcoesParaFinanciamento.registrarImovel(new Casa(enderecoRJ, 100000,true));
-            opcoesParaFinanciamento.registrarImovel(new Imovel(enderecoSC, 120000));
+            opcoesParaFinanciamento.registrarImovel(new Apartamento(enderecoSC, 120000, 3));
         /**
          * FIM
          *
