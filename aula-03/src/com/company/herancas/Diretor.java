@@ -1,7 +1,7 @@
-package com.company.heranca;
+package com.company.herancas;
 
 import com.company.enumerador.Genero;
-import com.company.domain.Pessoa;
+import com.company.domains.Pessoa;
 
 public class Diretor extends Pessoa {
 

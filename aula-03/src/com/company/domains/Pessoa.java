@@ -1,4 +1,4 @@
-package com.company.domain;
+package com.company.domains;
 
 import com.company.enumerador.Genero;
 

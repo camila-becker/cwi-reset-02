@@ -1,6 +1,6 @@
-package com.company.domain;
+package com.company.domains;
 
-import com.company.heranca.Diretor;
+import com.company.herancas.Diretor;
 
 public class Filme {
 
