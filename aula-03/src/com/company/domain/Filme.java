@@ -30,7 +30,7 @@ public class Filme {
 
     private void defineAvaliacao(Integer avaliacao) {
         if (avaliacao < 1 || avaliacao > 5) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Avaliação não pode ser menor que 1 ou maior que 5!");
         } else {
             this.avaliacao = avaliacao;
         }

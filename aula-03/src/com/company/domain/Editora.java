@@ -1,7 +1,5 @@
 package com.company.domain;
 
-import com.company.exceptions.EditoraException;
-
 public class Editora {
     private String nome;
     private String localizacao;
