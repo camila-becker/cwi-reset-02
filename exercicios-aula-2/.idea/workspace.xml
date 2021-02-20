@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb501f4-d70a-4717-a7e1-f47fd4abbd0e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../meu-projeto-cwi-reset/out/production/meu-projeto-cwi-reset/oo/Aplicacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../meu-projeto-cwi-reset/out/production/meu-projeto-cwi-reset/oo/Aplicacao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meu-projeto-cwi-reset/out/production/meu-projeto-cwi-reset/oo/Calculadora.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meu-projeto-cwi-reset/out/production/meu-projeto-cwi-reset/pratica/AppNotas.class" beforeDir="false" afterPath="$PROJECT_DIR$/../meu-projeto-cwi-reset/out/production/meu-projeto-cwi-reset/pratica/AppNotas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meu-projeto-cwi-reset/out/production/meu-projeto-cwi-reset/pratica/MediaDoAluno.class" beforeDir="false" afterPath="$PROJECT_DIR$/../meu-projeto-cwi-reset/out/production/meu-projeto-cwi-reset/pratica/MediaDoAluno.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meu-projeto-cwi-reset/src/pratica/AppNotas.java" beforeDir="false" afterPath="$PROJECT_DIR$/../meu-projeto-cwi-reset/src/pratica/AppNotas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meu-projeto-cwi-reset/src/pratica/MediaDoAluno.java" beforeDir="false" afterPath="$PROJECT_DIR$/../meu-projeto-cwi-reset/src/pratica/MediaDoAluno.java" afterDir="false" />
-    </list>
+    <list default="true" id="cdb501f4-d70a-4717-a7e1-f47fd4abbd0e" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

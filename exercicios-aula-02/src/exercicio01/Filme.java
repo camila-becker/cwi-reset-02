@@ -1,5 +1,7 @@
 package exercicio01;
 
+import java.util.List;
+
 public class Filme {
     private String nome;
     private String descricao;
@@ -7,8 +9,9 @@ public class Filme {
     private int ano;
     private int avaliacao;
     private Diretor diretor;
+    private List<Pessoa> elenco;
 
-    public Filme(String nome, String descricao, int duracao, int ano, int avaliacao, Diretor diretor){
+    public Filme(String nome, String descricao, int duracao, int ano, int avaliacao, Diretor diretor, List<Pessoa> elenco){
         defineAvaliacao(avaliacao);
         validaNomeEDefineAvaliacao(nome);
         this.nome = nome;
@@ -16,6 +19,7 @@ public class Filme {
         this.duracao = duracao;
         this.ano = ano;
         this.diretor = diretor;
+        this.elenco = elenco;
     }
 
     public void reproduzirFilme(){
@@ -39,6 +43,14 @@ public class Filme {
             this.avaliacao = 1;
         }else if("O Clube da Luta".equals(nome)){
             this.avaliacao = 5;
+        }
+    }
+
+    public void exibirCreditos(){
+        System.out.println("##### " + this.nome + " #####");
+        System.out.println("Elenco: ");
+        for (Pessoa pessoa : elenco){
+            pessoa.apresentacao();
         }
     }
 }

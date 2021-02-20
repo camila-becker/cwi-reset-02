@@ -7,4 +7,10 @@ public class Ator extends Pessoa{
         super(nome, idade, genero);
         this.oscarsVencidos = oscarsVencidos;
     }
+
+    @Override
+    public void apresentacao(){
+        super.apresentacao();
+        System.out.println("Quantidade de Oscars Vencidos: " + this.oscarsVencidos);
+    }
 }
