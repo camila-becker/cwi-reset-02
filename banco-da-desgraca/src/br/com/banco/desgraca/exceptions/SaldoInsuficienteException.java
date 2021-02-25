@@ -1,4 +1,4 @@
-package br.com.banco.desgraca.exception;
+package br.com.banco.desgraca.exceptions;
 
 public class SaldoInsuficienteException extends RuntimeException {
 

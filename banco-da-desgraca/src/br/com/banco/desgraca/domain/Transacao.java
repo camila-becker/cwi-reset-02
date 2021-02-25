@@ -1,10 +1,8 @@
 package br.com.banco.desgraca.domain;
 
-import br.com.banco.desgraca.domain.conta.TiposDeConta;
+import br.com.banco.desgraca.domain.conta.Conta;
 
-import java.text.DateFormat;
 import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -12,13 +10,15 @@ public class Transacao {
     private TipoTransacao tipo;
     private LocalDate data;
     private Double valor;
-    private TiposDeConta conta;
+    private Conta conta;
+    private Double saldo;
 
-    public Transacao(TipoTransacao tipo, LocalDate data, Double valor, TiposDeConta conta) {
+    public Transacao(TipoTransacao tipo, LocalDate data, Double valor, Conta conta, Double saldo) {
         this.tipo = tipo;
         this.data = data;
         this.valor = valor;
         this.conta = conta;
+        this.saldo = saldo;
     }
 
     public TipoTransacao getTipo() {
@@ -38,6 +38,7 @@ public class Transacao {
         DateTimeFormatter dataFormatada = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return "Conta " + conta.getNumeroDaConta() + " - Banco " + conta.getInstituicaoBancaria().getNomeDoBanco()
                 + "\n" + "** " + tipo.getDescricao() + " em: " + data.format(dataFormatada) + "\n" +
-                "Valor " + DecimalFormat.getCurrencyInstance().format(valor);
+                "Valor " + DecimalFormat.getCurrencyInstance().format(valor) + "\n" + "Saldo atual " +
+                DecimalFormat.getCurrencyInstance().format(this.saldo);
     }
 }

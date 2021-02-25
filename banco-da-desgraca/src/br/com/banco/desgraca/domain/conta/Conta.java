@@ -1,22 +1,25 @@
 package br.com.banco.desgraca.domain.conta;
 
+import br.com.banco.desgraca.Data;
 import br.com.banco.desgraca.domain.InstituicaoBancaria;
+import br.com.banco.desgraca.domain.TipoTransacao;
 import br.com.banco.desgraca.domain.Transacao;
+import br.com.banco.desgraca.exceptions.SaldoInsuficienteException;
+import br.com.banco.desgraca.exceptions.TransferenciaParaMesmaContaException;
 
 import java.text.DecimalFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class TiposDeConta implements ContaBancaria{
+public abstract class Conta implements ContaBancaria{
     private Integer numeroDaConta;
     private InstituicaoBancaria banco;
     private Double saldo;
 
     private List<Transacao> transacoes = new ArrayList<Transacao>();
 
-    public TiposDeConta(Integer numeroDaConta, InstituicaoBancaria banco) {
+    public Conta(Integer numeroDaConta, InstituicaoBancaria banco) {
         this.numeroDaConta = numeroDaConta;
         this.banco = banco;
         this.saldo = 0d;
@@ -59,7 +62,8 @@ public abstract class TiposDeConta implements ContaBancaria{
 
     @Override
     public void depositar(Double valor) {
-        saldo += valor;
+        setSaldo(valor);
+        getTransacoes().add(new Transacao(TipoTransacao.DEPOSITAR, Data.getDataTransacao(), valor, this, getSaldo()));
         System.out.println("Depositando " + DecimalFormat.getCurrencyInstance().format(valor) + " na " + this.toString());
     }
 
@@ -71,5 +75,27 @@ public abstract class TiposDeConta implements ContaBancaria{
                 System.out.println(transacao.toString());
             }
         }
+    }
+
+    public void verificarSaldo(Double valor){
+        if(valor > getSaldo()){
+            throw new SaldoInsuficienteException("Saldo insuficiente!");
+        }
+    }
+
+    public void verificarConta(ContaBancaria contaDestino){
+        if(contaDestino.equals(this)){
+            throw new TransferenciaParaMesmaContaException("Não é possível realizar transferências para a mesma conta!");
+        }
+    }
+
+    public void mensagemSaque(Double valor){
+        System.out.println("Sacando valor " + DecimalFormat.getCurrencyInstance().format(valor) + " da " +
+                this.toString());
+    }
+
+    public void mensagemTransferencia(Double valor, ContaBancaria contaDestino){
+        System.out.println("Transferindo valor " + DecimalFormat.getCurrencyInstance().format(valor) +
+                " da " + this.toString() + " para a " + contaDestino.toString());
     }
 }

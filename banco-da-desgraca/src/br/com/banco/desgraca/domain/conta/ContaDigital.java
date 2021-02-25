@@ -4,15 +4,16 @@ import br.com.banco.desgraca.Data;
 import br.com.banco.desgraca.domain.InstituicaoBancaria;
 import br.com.banco.desgraca.domain.TipoTransacao;
 import br.com.banco.desgraca.domain.Transacao;
-import br.com.banco.desgraca.exception.SaldoInsuficienteException;
+import br.com.banco.desgraca.exceptions.SaqueNaoPermitidoException;
+import br.com.banco.desgraca.exceptions.TipoDeContaException;
 
-import java.text.DecimalFormat;
-
-public class ContaDigital extends TiposDeConta {
+public class ContaDigital extends Conta {
     public ContaDigital(Integer numeroDaConta, InstituicaoBancaria banco) {
         super(numeroDaConta, banco);
         validarBanco(banco);
     }
+
+    private static final Integer VALOR_MINIMO_SAQUE = 10;
 
     @Override
     public String toString(){
@@ -21,34 +22,31 @@ public class ContaDigital extends TiposDeConta {
 
     @Override
     public void sacar(Double valor) {
+        verificarSaldo(valor);
         validarSaque(valor);
-        if(valor >= 10){
-            setSaldo(getSaldo() - valor);
-            System.out.println("Sacando valor " + DecimalFormat.getCurrencyInstance().format(valor) + " da " + this.toString());
-            getTransacoes().add(new Transacao(TipoTransacao.SACAR, Data.getDataTransacao(), valor, this));
-        }else{
-            throw new RuntimeException("O valor para saque deve ser superior ou igual a R$ 10,00");
-        }
+        setSaldo(getSaldo() - valor);
+        getTransacoes().add(new Transacao(TipoTransacao.SACAR, Data.getDataTransacao(), valor, this, getSaldo()));
+        mensagemSaque(valor);
     }
 
     @Override
     public void transferir(Double valor, ContaBancaria contaDestino) {
+        verificarSaldo(valor);
+        verificarConta(contaDestino);
         setSaldo(getSaldo() - valor);
-        System.out.println("Transferindo valor " + DecimalFormat.getCurrencyInstance().format(valor) +
-                " da " + this.toString() + " para a " + contaDestino.toString());
+        mensagemTransferencia(valor, contaDestino);
         contaDestino.depositar(valor);
-        getTransacoes().add(new Transacao(TipoTransacao.TRANSFERIR, Data.getDataTransacao(), valor, this));
+        getTransacoes().add(new Transacao(TipoTransacao.TRANSFERIR, Data.getDataTransacao(), valor, this, getSaldo()));
     }
 
-    public void validarBanco(InstituicaoBancaria banco){
+    private void validarBanco(InstituicaoBancaria banco){
         if(banco != InstituicaoBancaria.NUBANK && banco != InstituicaoBancaria.ITAU){
-            throw new RuntimeException("Não podemos criar uma conta digital para o banco " + banco.getNomeDoBanco() + "!");
+            throw new TipoDeContaException("Não podemos criar uma conta digital para o banco " + banco.getNomeDoBanco() + "!");
         }
     }
-
-    public void validarSaque(Double valor){
-        if(valor > getSaldo()){
-            throw new SaldoInsuficienteException("Saldo insuficiente!");
+    private void validarSaque(Double valor){
+        if(valor < VALOR_MINIMO_SAQUE){
+            throw new SaqueNaoPermitidoException("O valor para saque deve ser superior ou igual a R$ 10,00");
         }
     }
 }
