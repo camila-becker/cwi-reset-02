@@ -1,6 +1,7 @@
 package br.com.banco.desgraca.domain;
 
 import br.com.banco.desgraca.domain.conta.Conta;
+import br.com.banco.desgraca.domain.enuns.TipoTransacao;
 
 import java.text.DecimalFormat;
 import java.time.LocalDate;
@@ -36,7 +37,7 @@ public class Transacao {
     @Override
     public String toString(){
         DateTimeFormatter dataFormatada = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return "Conta " + conta.getNumeroDaConta() + " - Banco " + conta.getInstituicaoBancaria().getNomeDoBanco()
+        return "Conta " + conta.getNumeroDaConta() + " - " + conta.getInstituicaoBancaria().getNomeDoBanco()
                 + "\n" + "** " + tipo.getDescricao() + " em: " + data.format(dataFormatada) + "\n" +
                 "Valor " + DecimalFormat.getCurrencyInstance().format(valor) + "\n" + "Saldo atual " +
                 DecimalFormat.getCurrencyInstance().format(this.saldo);

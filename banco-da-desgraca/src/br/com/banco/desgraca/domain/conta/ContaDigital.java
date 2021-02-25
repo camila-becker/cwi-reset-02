@@ -1,9 +1,6 @@
 package br.com.banco.desgraca.domain.conta;
 
-import br.com.banco.desgraca.Data;
-import br.com.banco.desgraca.domain.InstituicaoBancaria;
-import br.com.banco.desgraca.domain.TipoTransacao;
-import br.com.banco.desgraca.domain.Transacao;
+import br.com.banco.desgraca.domain.enuns.InstituicaoBancaria;
 import br.com.banco.desgraca.exceptions.SaqueNaoPermitidoException;
 import br.com.banco.desgraca.exceptions.TipoDeContaException;
 
@@ -22,21 +19,8 @@ public class ContaDigital extends Conta {
 
     @Override
     public void sacar(Double valor) {
-        verificarSaldo(valor);
         validarSaque(valor);
-        setSaldo(getSaldo() - valor);
-        getTransacoes().add(new Transacao(TipoTransacao.SACAR, Data.getDataTransacao(), valor, this, getSaldo()));
-        mensagemSaque(valor);
-    }
-
-    @Override
-    public void transferir(Double valor, ContaBancaria contaDestino) {
-        verificarSaldo(valor);
-        verificarConta(contaDestino);
-        setSaldo(getSaldo() - valor);
-        mensagemTransferencia(valor, contaDestino);
-        contaDestino.depositar(valor);
-        getTransacoes().add(new Transacao(TipoTransacao.TRANSFERIR, Data.getDataTransacao(), valor, this, getSaldo()));
+        super.sacar(valor);
     }
 
     private void validarBanco(InstituicaoBancaria banco){

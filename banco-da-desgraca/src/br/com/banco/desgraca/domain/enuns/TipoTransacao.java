@@ -1,11 +1,9 @@
-package br.com.banco.desgraca.domain;
+package br.com.banco.desgraca.domain.enuns;
 
 public enum TipoTransacao {
     DEPOSITAR ("Depósito"),
     SACAR ("Saque"),
-    TRANSFERIR("Transferência"),
-    EXTRATO ("Extrato"),
-    ;
+    TRANSFERIR("Transferência");
 
     private String descricao;
 

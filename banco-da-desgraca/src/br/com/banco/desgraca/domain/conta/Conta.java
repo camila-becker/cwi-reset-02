@@ -1,8 +1,8 @@
 package br.com.banco.desgraca.domain.conta;
 
 import br.com.banco.desgraca.Data;
-import br.com.banco.desgraca.domain.InstituicaoBancaria;
-import br.com.banco.desgraca.domain.TipoTransacao;
+import br.com.banco.desgraca.domain.enuns.InstituicaoBancaria;
+import br.com.banco.desgraca.domain.enuns.TipoTransacao;
 import br.com.banco.desgraca.domain.Transacao;
 import br.com.banco.desgraca.exceptions.SaldoInsuficienteException;
 import br.com.banco.desgraca.exceptions.TransferenciaParaMesmaContaException;
@@ -41,10 +41,6 @@ public abstract class Conta implements ContaBancaria{
         return transacoes;
     }
 
-    public void setTransacoes(List<Transacao> transacoes) {
-        this.transacoes = transacoes;
-    }
-
     @Override
     public String toString(){
         return banco.getNomeDoBanco() + " " + getNumeroDaConta();
@@ -63,17 +59,32 @@ public abstract class Conta implements ContaBancaria{
     @Override
     public void depositar(Double valor) {
         setSaldo(valor);
-        getTransacoes().add(new Transacao(TipoTransacao.DEPOSITAR, Data.getDataTransacao(), valor, this, getSaldo()));
+        getTransacoes().add(new Transacao(TipoTransacao.DEPOSITAR, Data.getDataTransacao(), valor, this, this.saldo));
         System.out.println("Depositando " + DecimalFormat.getCurrencyInstance().format(valor) + " na " + this.toString());
     }
 
     @Override
+    public void sacar(Double valor){
+        verificarSaldo(valor);
+        setSaldo(getSaldo() - valor);
+        transacoes.add(new Transacao(TipoTransacao.SACAR, Data.getDataTransacao(), valor, this, this.saldo));
+        mensagemSaque(valor);
+    }
+
+    @Override
+    public void transferir(Double valor, ContaBancaria contaDestino){
+        verificarSaldo(valor);
+        setSaldo(getSaldo() - valor);
+        mensagemTransferencia(valor, contaDestino);
+        contaDestino.depositar(valor);
+        transacoes.add(new Transacao(TipoTransacao.TRANSFERIR, Data.getDataTransacao(), valor, this, this.saldo));
+    }
+
+    @Override
     public void exibirExtrato(LocalDate inicio, LocalDate fim) {
+        System.out.println("******** Extrato " + this.toString() + " ********" + "\n");
         for(Transacao transacao : transacoes){
-            if(transacao.getData().compareTo(inicio) >= 0 && transacao.getData().compareTo(fim) <= 0){
-                System.out.println("---------------------------------------------------");
-                System.out.println(transacao.toString());
-            }
+            System.out.println(transacao + "\n");
         }
     }
 

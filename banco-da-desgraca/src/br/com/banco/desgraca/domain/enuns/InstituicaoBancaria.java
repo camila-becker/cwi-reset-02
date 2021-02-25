@@ -1,4 +1,4 @@
-package br.com.banco.desgraca.domain;
+package br.com.banco.desgraca.domain.enuns;
 
 public enum InstituicaoBancaria {
 
@@ -6,7 +6,7 @@ public enum InstituicaoBancaria {
     BRADESCO (" Banco Bradesco"),
     CAIXA ("Caixa Econômica Federal"),
     ITAU ("Banco Itaú"),
-    NUBANK ("Nubank");
+    NUBANK ("Banco Nubank");
 
     private String nomeDoBanco;
 
