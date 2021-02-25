@@ -15,7 +15,6 @@ public class ContaPoupanca extends Conta {
     private static final Double TAXA_DE_TRANSFERENCIA_MESMO_BANCO = 0.005;
     private static final Double TAXA_DE_TRANSFERENCIA_OUTROS_BANCOS = 0.01;
     private static final Integer VALOR_MINIMO_SAQUE = 50;
-    private Double taxa = 0d;
 
     @Override
     public String toString(){
