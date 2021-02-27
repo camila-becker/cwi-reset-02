@@ -1,8 +1,8 @@
-package br.com.cwi.reset.exemploreset.service;
+package br.com.cwi.reset.exemploreset.exercicio02.service;
 
-import br.com.cwi.reset.exemploreset.domain.Usuario;
-import br.com.cwi.reset.exemploreset.exception.BadRequestException;
-import br.com.cwi.reset.exemploreset.repository.UsuarioRepository;
+import br.com.cwi.reset.exemploreset.exercicio02.domain.Usuario;
+import br.com.cwi.reset.exemploreset.exercicio02.exception.BadRequestException;
+import br.com.cwi.reset.exemploreset.exercicio02.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

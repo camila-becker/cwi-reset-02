@@ -1,4 +1,4 @@
-package br.com.cwi.reset.exemploreset.exception;
+package br.com.cwi.reset.exemploreset.exercicio02.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

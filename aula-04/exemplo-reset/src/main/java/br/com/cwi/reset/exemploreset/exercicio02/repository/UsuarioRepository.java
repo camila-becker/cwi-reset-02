@@ -1,6 +1,6 @@
-package br.com.cwi.reset.exemploreset.repository;
+package br.com.cwi.reset.exemploreset.exercicio02.repository;
 
-import br.com.cwi.reset.exemploreset.domain.Usuario;
+import br.com.cwi.reset.exemploreset.exercicio02.domain.Usuario;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

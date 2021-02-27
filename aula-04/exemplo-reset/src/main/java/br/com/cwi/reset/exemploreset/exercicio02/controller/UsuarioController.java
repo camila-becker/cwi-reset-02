@@ -1,7 +1,7 @@
-package br.com.cwi.reset.exemploreset.controller;
+package br.com.cwi.reset.exemploreset.exercicio02.controller;
 
-import br.com.cwi.reset.exemploreset.domain.Usuario;
-import br.com.cwi.reset.exemploreset.service.UsuarioService;
+import br.com.cwi.reset.exemploreset.exercicio02.domain.Usuario;
+import br.com.cwi.reset.exemploreset.exercicio02.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

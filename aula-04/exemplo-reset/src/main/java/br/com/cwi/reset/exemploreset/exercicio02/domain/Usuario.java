@@ -1,4 +1,4 @@
-package br.com.cwi.reset.exemploreset.domain;
+package br.com.cwi.reset.exemploreset.exercicio02.domain;
 
 public class Usuario {
     private Integer id;
