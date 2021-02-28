@@ -9,24 +9,22 @@ public class ConsultarDetalhesFilmeResponse {
     private Long id;
     private String nome;
     private Genero genero;
-    private DiretoresResponse diretor;
+    private List<DiretoresResponse> diretor;
     private List<AtoresResponse> atores;
 
-    public ConsultarDetalhesFilmeResponse(final Long id, final String nome, final Genero genero,
-        final DiretoresResponse diretor, final List<AtoresResponse> atores) {
+    public ConsultarDetalhesFilmeResponse(Long id, String nome, Genero genero, List<AtoresResponse> atoresResponse) {
         this.id = id;
         this.nome = nome;
         this.genero = genero;
-        this.diretor = diretor;
-        this.atores = atores;
+//        this.diretor = diretoresResponse;
+        this.atores = atoresResponse;
     }
-
 
     public Long getId() {
         return id;
     }
 
-    public void setId(final Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -34,7 +32,7 @@ public class ConsultarDetalhesFilmeResponse {
         return nome;
     }
 
-    public void setNome(final String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
@@ -42,15 +40,15 @@ public class ConsultarDetalhesFilmeResponse {
         return genero;
     }
 
-    public void setGenero(final Genero genero) {
+    public void setGenero(Genero genero) {
         this.genero = genero;
     }
 
-    public DiretoresResponse getDiretor() {
+    public List<DiretoresResponse> getDiretor() {
         return diretor;
     }
 
-    public void setDiretor(final DiretoresResponse diretor) {
+    public void setDiretor(List<DiretoresResponse> diretor) {
         this.diretor = diretor;
     }
 
@@ -58,8 +56,7 @@ public class ConsultarDetalhesFilmeResponse {
         return atores;
     }
 
-    public void setAtores(final List<AtoresResponse> atores) {
+    public void setAtores(List<AtoresResponse> atores) {
         this.atores = atores;
     }
-
 }
