@@ -2,7 +2,6 @@ package br.com.cwi.resetflix.service;
 
 import br.com.cwi.resetflix.domain.Genero;
 import br.com.cwi.resetflix.entity.AtorEntity;
-import br.com.cwi.resetflix.entity.DiretorEntity;
 import br.com.cwi.resetflix.entity.FilmeEntity;
 import br.com.cwi.resetflix.mapper.ConsultarDetalhesFilmeResponseMapper;
 import br.com.cwi.resetflix.mapper.FilmeEntityMapper;

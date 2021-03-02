@@ -3,7 +3,6 @@ package br.com.cwi.resetflix.repository;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.cwi.resetflix.entity.FilmeEntity;
 import org.springframework.stereotype.Repository;
 
 import br.com.cwi.resetflix.entity.AtorEntity;
@@ -23,7 +22,6 @@ public class AtoresRepository {
             salvarAtor.setId(contadorIds);
             contadorIds++;
         }
-
         atores.add(salvarAtor);
 
         return salvarAtor.getId();

@@ -22,7 +22,6 @@ import br.com.cwi.resetflix.response.FilmeResponse;
 @RequestMapping("/filmes")
 public class FilmesController implements FilmesContract {
 
-    //TODO Implementar service
     @Autowired
     FilmesService filmesService;
 
@@ -30,21 +29,18 @@ public class FilmesController implements FilmesContract {
     @Override
     @GetMapping
     public List<FilmeResponse> getFilmes(@RequestParam(value = "genero", required = false) final Genero genero) {
-        //TODO realizar chamada
         return filmesService.getFilme(genero);
     }
 
     @Override
     @GetMapping("/{id}")
     public ConsultarDetalhesFilmeResponse getFilmeById(@PathVariable("id") final Long id) {
-        //TODO realizar chamada
         return filmesService.consultarDetalhesFilme(id);
     }
 
     @Override
     @PostMapping
     public Long criarFilme(@RequestBody final CriarFilmeRequest request) {
-        //TODO realizar chamada
         return filmesService.criarFilme(request);
     }
 

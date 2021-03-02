@@ -14,7 +14,7 @@ public class AtoresResponse {
         return id;
     }
 
-    public void setId(final Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -22,7 +22,8 @@ public class AtoresResponse {
         return nome;
     }
 
-    public void setNome(final String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
+
 }
