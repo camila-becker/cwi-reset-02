@@ -3,12 +3,23 @@ package br.com.cwi.resetflix.repository;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.cwi.resetflix.entity.FilmeEntity;
+import br.com.cwi.resetflix.entity.SerieEntity;
+import br.com.cwi.resetflix.exception.BadRequestException;
+import br.com.cwi.resetflix.exception.NotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import br.com.cwi.resetflix.entity.AtorEntity;
 
 @Repository
 public class AtoresRepository {
+
+    @Autowired
+    FilmesRepository filmesRepository;
+
+    @Autowired
+    SeriesRepository seriesRepository;
 
     static List<AtorEntity> atores = new ArrayList<>();
     static Long contadorIds = 1l;
@@ -18,12 +29,16 @@ public class AtoresRepository {
     }
 
     public Long criarAtor(final AtorEntity salvarAtor) {
+        for(AtorEntity ator : atores){
+            if(salvarAtor.getNome().equals(ator.getNome())){
+                throw new BadRequestException("Ator já foi cadastrado!");
+            }
+        }
         if(salvarAtor.getId() == null){
             salvarAtor.setId(contadorIds);
             contadorIds++;
         }
         atores.add(salvarAtor);
-
         return salvarAtor.getId();
     }
 
@@ -35,16 +50,29 @@ public class AtoresRepository {
             }
         }
 
-        return null;
+        throw new NotFoundException("Ator não encontrado!");
     }
 
     public List<AtorEntity> buscarAtoresPorFilme(Long id) {
-        List<AtorEntity> atorSalvo = new ArrayList<>();
+        FilmeEntity filme = filmesRepository.buscarFilmePorId(id);
+        List<AtorEntity> listaDeAtores = new ArrayList<>();
         for(AtorEntity ator : atores){
-            if(ator.getId().equals(id)){
-                atorSalvo.add(ator);
+            if(filme.getIdsAtores().contains(ator.getId())){
+                listaDeAtores.add(ator);
             }
         }
-        return atorSalvo;
+
+        return listaDeAtores;
+    }
+
+    public List<AtorEntity> buscarAtoresPorSerie(Long id) {
+        SerieEntity serie = seriesRepository.buscarSeriePorId(id);
+        List<AtorEntity> listaDeAtores = new ArrayList<>();
+        for(AtorEntity ator : atores){
+            if(serie.getIdsAtores().contains(ator.getId())){
+                listaDeAtores.add(ator);
+            }
+        }
+        return listaDeAtores;
     }
 }

@@ -6,6 +6,7 @@ import java.util.List;
 import br.com.cwi.resetflix.domain.Genero;
 import br.com.cwi.resetflix.entity.AtorEntity;
 import br.com.cwi.resetflix.entity.DiretorEntity;
+import br.com.cwi.resetflix.exception.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import br.com.cwi.resetflix.entity.FilmeEntity;
@@ -27,6 +28,11 @@ public class FilmesRepository {
     }
 
     public Long criarFilme(final FilmeEntity salvarFilme){
+        for(FilmeEntity filme : filmes){
+            if(salvarFilme.getNome().equals(filme.getNome())){
+                throw new BadRequestException("Filme já foi cadastrado!");
+            }
+        }
         if(salvarFilme.getId() == null){
             salvarFilme.setId(nextId);
             nextId++;
@@ -47,14 +53,14 @@ public class FilmesRepository {
     }
 
     public List<FilmeEntity> acharFilmesDiretor(final Long id) {
-        DiretorEntity diretor = diretoresRepository.buscarAtorPorId(id);
-        List<FilmeEntity> listaDeFilmes = new ArrayList<>();
+        DiretorEntity diretor = diretoresRepository.buscarDiretorPorId(id);
+        List<FilmeEntity> listaDeFilmesDiretor = new ArrayList<>();
         for(FilmeEntity filme : filmes){
             if(diretor.getIdsFilmes().contains(filme.getId())){
-                listaDeFilmes.add(filme);
+                listaDeFilmesDiretor.add(filme);
             }
         }
-        return listaDeFilmes;
+        return listaDeFilmesDiretor;
     }
 
     public List<FilmeEntity> buscarFilmePorGenero(final Genero genero){
@@ -64,6 +70,11 @@ public class FilmesRepository {
                 filmeSalvo.add(filme);
             }
         }
+
+        if(genero == null){
+            return filmes;
+        }
+
         return filmeSalvo;
     }
 

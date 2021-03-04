@@ -2,14 +2,14 @@ package br.com.cwi.resetflix.service;
 
 import br.com.cwi.resetflix.entity.DiretorEntity;
 import br.com.cwi.resetflix.entity.FilmeEntity;
-import br.com.cwi.resetflix.mapper.ConsultarDetalhesDiretorResponseMapper;
-import br.com.cwi.resetflix.mapper.DiretorEntityMapper;
-import br.com.cwi.resetflix.mapper.DiretoresResponseMapper;
+import br.com.cwi.resetflix.mapper.diretor.ConsultarDetalhesDiretorResponseMapper;
+import br.com.cwi.resetflix.mapper.diretor.DiretorEntityMapper;
+import br.com.cwi.resetflix.mapper.diretor.DiretoresResponseMapper;
 import br.com.cwi.resetflix.repository.DiretoresRepository;
 import br.com.cwi.resetflix.repository.FilmesRepository;
 import br.com.cwi.resetflix.request.CriarDiretorRequest;
-import br.com.cwi.resetflix.response.ConsultarDetalhesDiretorResponse;
-import br.com.cwi.resetflix.response.DiretoresResponse;
+import br.com.cwi.resetflix.response.diretor.ConsultarDetalhesDiretorResponse;
+import br.com.cwi.resetflix.response.diretor.DiretoresResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,7 +38,7 @@ public class DiretoresService {
     }
 
     public ConsultarDetalhesDiretorResponse consultarDetalhesDiretor(final Long id){
-        DiretorEntity diretorSalvo = diretoresRepository.buscarAtorPorId(id);
+        DiretorEntity diretorSalvo = diretoresRepository.buscarDiretorPorId(id);
         List<FilmeEntity> filmesDiretor = filmesRepository.acharFilmesDiretor(id);
         return MAPPER_DETALHES_DIRETOR.mapear(diretorSalvo, filmesDiretor);
     }

@@ -3,9 +3,9 @@ package br.com.cwi.resetflix.entity;
 import java.util.List;
 
 public class DiretorEntity {
-    Long id;
-    String nome;
-    List<Long> idsFilmes;
+    private Long id;
+    private String nome;
+    private List<Long> idsFilmes;
 
     public DiretorEntity(final String nome, final List<Long> idsFilmes) {
         this.nome = nome;

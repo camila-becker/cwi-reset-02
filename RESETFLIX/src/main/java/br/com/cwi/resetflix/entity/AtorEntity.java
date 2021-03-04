@@ -12,11 +12,6 @@ public class AtorEntity {
         this.nome = nome;
         this.idsFilmes = idsFilmes;
     }
-    public AtorEntity(final Long id, final String nome, final List<Long> idsFilmes) {
-        this.id = id;
-        this.nome = nome;
-        this.idsFilmes = idsFilmes;
-    }
 
     public Long getId() {
         return id;

@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 
 import br.com.cwi.resetflix.entity.AtorEntity;
 import br.com.cwi.resetflix.entity.FilmeEntity;
-import br.com.cwi.resetflix.mapper.AtorEntityMapper;
-import br.com.cwi.resetflix.mapper.AtoresResponseMapper;
-import br.com.cwi.resetflix.mapper.ConsultarDetalhesAtorResponseMapper;
+import br.com.cwi.resetflix.mapper.ator.AtorEntityMapper;
+import br.com.cwi.resetflix.mapper.ator.AtoresResponseMapper;
+import br.com.cwi.resetflix.mapper.ator.ConsultarDetalhesAtorResponseMapper;
 import br.com.cwi.resetflix.repository.AtoresRepository;
 import br.com.cwi.resetflix.repository.FilmesRepository;
 import br.com.cwi.resetflix.request.CriarAtorRequest;
-import br.com.cwi.resetflix.response.AtoresResponse;
-import br.com.cwi.resetflix.response.ConsultarDetalhesAtorResponse;
+import br.com.cwi.resetflix.response.ator.AtoresResponse;
+import br.com.cwi.resetflix.response.ator.ConsultarDetalhesAtorResponse;
 
 @Service
 public class AtoresService {
