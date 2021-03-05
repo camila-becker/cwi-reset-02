@@ -4,6 +4,8 @@ import br.com.cwi.resetflix.domain.Genero;
 import br.com.cwi.resetflix.entity.AtorEntity;
 import br.com.cwi.resetflix.entity.DiretorEntity;
 import br.com.cwi.resetflix.entity.FilmeEntity;
+import br.com.cwi.resetflix.entity.UsuarioEntity;
+import br.com.cwi.resetflix.exception.NotFoundException;
 import br.com.cwi.resetflix.mapper.filme.ConsultarDetalhesFilmeResponseMapper;
 import br.com.cwi.resetflix.mapper.filme.FilmeEntityMapper;
 import br.com.cwi.resetflix.mapper.filme.FilmesResponseMapper;
@@ -16,6 +18,7 @@ import br.com.cwi.resetflix.response.filme.FilmesResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -32,6 +35,7 @@ public class FilmesService {
     static FilmesResponseMapper MAPPER_RESPONSE = new FilmesResponseMapper();
     static FilmeEntityMapper MAPPER_ENTITY = new FilmeEntityMapper();
     static ConsultarDetalhesFilmeResponseMapper MAPPER_DETALHES_FILME = new ConsultarDetalhesFilmeResponseMapper();
+
 
     public List<FilmesResponse> getFilmes(){
         final List<FilmeEntity> filmes = filmesRepository.getFilmes();
@@ -53,5 +57,13 @@ public class FilmesService {
         List<AtorEntity> atores = atoresRepository.buscarAtoresPorFilme(id);
         DiretorEntity diretor = diretoresRepository.buscarDiretorPorId(id);
         return MAPPER_DETALHES_FILME.mapear(filmeSalvo, diretor, atores);
+    }
+
+    public void assistirFilme(final Long id){
+        UsuarioEntity usuario = new UsuarioEntity(1l, "Camila");
+        FilmeEntity filme = filmesRepository.buscarFilmePorId(id);
+        List<FilmeEntity> filmeAssistido = new ArrayList<>();
+        filmeAssistido.add(filme);
+        usuario.setFilmesAssistidos(MAPPER_RESPONSE.mapear(filmeAssistido));
     }
 }

@@ -6,7 +6,6 @@ import java.util.List;
 import br.com.cwi.resetflix.entity.FilmeEntity;
 import br.com.cwi.resetflix.entity.SerieEntity;
 import br.com.cwi.resetflix.exception.BadRequestException;
-import br.com.cwi.resetflix.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -43,14 +42,12 @@ public class AtoresRepository {
     }
 
     public AtorEntity buscarAtorPorId(final Long id) {
-
         for(AtorEntity atorEntity : atores){
             if(atorEntity.getId().equals(id)){
                 return atorEntity;
             }
         }
-
-        throw new NotFoundException("Ator não encontrado!");
+        return null;
     }
 
     public List<AtorEntity> buscarAtoresPorFilme(Long id) {

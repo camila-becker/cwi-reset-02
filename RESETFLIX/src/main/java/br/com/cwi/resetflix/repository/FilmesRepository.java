@@ -30,7 +30,7 @@ public class FilmesRepository {
     public Long criarFilme(final FilmeEntity salvarFilme){
         for(FilmeEntity filme : filmes){
             if(salvarFilme.getNome().equals(filme.getNome())){
-                throw new BadRequestException("Filme já foi cadastrado!");
+                throw new BadRequestException("Filme já cadastrado!");
             }
         }
         if(salvarFilme.getId() == null){
@@ -70,7 +70,6 @@ public class FilmesRepository {
                 filmeSalvo.add(filme);
             }
         }
-
         if(genero == null){
             return filmes;
         }

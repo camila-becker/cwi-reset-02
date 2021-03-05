@@ -42,6 +42,6 @@ public class DiretoresRepository {
                 return diretorEntity;
             }
         }
-        throw new NotFoundException("Diretor não encontrado!");
+        return null;
     }
 }
