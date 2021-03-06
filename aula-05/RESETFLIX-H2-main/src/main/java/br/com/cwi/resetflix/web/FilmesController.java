@@ -1,9 +1,7 @@
-package br.com.cwi.resetflix.web.filmes;
+package br.com.cwi.resetflix.web;
 
-import java.util.Collections;
 import java.util.List;
 
-import br.com.cwi.resetflix.service.FilmesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,21 +13,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.cwi.resetflix.domain.Genero;
 import br.com.cwi.resetflix.request.CriarFilmeRequest;
-import br.com.cwi.resetflix.response.filme.ConsultarDetalhesFilmeResponse;
-import br.com.cwi.resetflix.response.filme.FilmesResponse;
+import br.com.cwi.resetflix.response.ConsultarDetalhesFilmeResponse;
+import br.com.cwi.resetflix.response.FilmeResponse;
+import br.com.cwi.resetflix.service.FilmesService;
 
 @RestController
 @RequestMapping("/filmes")
 public class FilmesController implements FilmesContract {
 
     @Autowired
-    FilmesService filmesService;
-
+    private FilmesService filmesService;
 
     @Override
     @GetMapping
-    public List<FilmesResponse> getFilmes(@RequestParam(value = "genero", required = false) final Genero genero) {
-        return filmesService.getFilme(genero);
+    public List<FilmeResponse> getFilmes(@RequestParam(value = "genero", required = false) final Genero genero) {
+        return filmesService.getFilmes(genero);
     }
 
     @Override
@@ -44,14 +42,4 @@ public class FilmesController implements FilmesContract {
         return filmesService.criarFilme(request);
     }
 
-    @Override
-    @GetMapping("/recomendacoes")
-    public List<FilmesResponse> getRecomendacoesFilmes() {
-        return filmesService.getFilmes();
-    }
-
-    @Override
-    @PostMapping("/{id}/assistir")
-    public void assistirFilme(@PathVariable("id") final Long id) {
-    }
 }

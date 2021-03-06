@@ -7,6 +7,7 @@ import br.com.cwi.resetflix.mapper.serie.ConsultarDetalhesSerieResponseMapper;
 import br.com.cwi.resetflix.mapper.serie.SerieEntityMapper;
 import br.com.cwi.resetflix.mapper.serie.SeriesResponseMapper;
 import br.com.cwi.resetflix.repository.AtoresRepository;
+import br.com.cwi.resetflix.repository.FilmesRepository;
 import br.com.cwi.resetflix.repository.SeriesRepository;
 import br.com.cwi.resetflix.request.CriarSerieRequest;
 import br.com.cwi.resetflix.response.serie.ConsultarDetalhesSerieResponse;
@@ -23,6 +24,9 @@ public class SeriesService {
 
     @Autowired
     private AtoresRepository atoresRepository;
+
+    @Autowired
+    private FilmesRepository filmesRepository;
 
     static SeriesResponseMapper MAPPER_RESPONSE = new SeriesResponseMapper();
     static SerieEntityMapper MAPPER_ENTITY = new SerieEntityMapper();
